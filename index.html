@@ -1,0 +1,78 @@
+<DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset = UTF-8>
+<title> Vanilla JS Drum Kit </title>
+<link rel = "stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="keys">
+<div data-key="65" class="key">
+<kbd>A</kbd>
+<span class="sound">Clap</span>
+</div>
+<div data-key="85" class="key">
+<kbd>S</kbd>
+<span class="sound">Hihat</span>
+</div>
+<div data-key="68" class="key">
+<kbd>D</kbd>
+<span class="sound">Kick</span>
+</div>
+<div data-key="78" class="key">
+<kbd>F</kbd>
+<span class="sound">OpenHat</span>
+</div>
+<div data-key="71" class="key">
+<kbd>G</kbd>
+<span class="sound">Rim</span>
+</div>
+<div data-key="72" class="key">
+<kbd>H</kbd>
+<span class="sound">Ride</span>
+</div>
+<div data-key="74" class="key">
+<kbd>J</kbd>
+<span class="sound">Snare</span>
+</div>
+<div data-key="75" class="key">
+<kbd>K</kbd>
+<span class="sound">Tom</span>
+</div>
+<div data-key="76" class="key">
+<kbd>L</kbd>
+<span class="sound">808Bass</span>
+</div>
+</div>
+
+
+<audio data-key="65" src="sounds/808-Clap13.wav"></audio>
+<audio data-key="83" src="sounds/808-HiHats01.wav"></audio>
+<audio data-key="68" src="sounds/808-Kicks32.wav"></audio>
+<audio data-key="70" src="sounds/808-OpenHiHats06.wav"></audio>
+<audio data-key="71" src="sounds/808-Rim4.wav"></audio>
+<audio data-key="72" src="sounds/808-Ride4.wav"></audio>
+<audio data-key="74" src="sounds/808-Snare21.wav"></audio>
+<audio data-key="75" src="sounds/808-Tom1.wav"></audio>
+<audio data-key="76" src="sounds/Pedal Bass Hit.wav"></audio>
+
+<script>
+window.addEventListener('keydown',function(e){
+console.log(e.keyCode)
+const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
+if(!audio) return; //Stop the function from running all together
+audio.currentTime=0; //Rewind from start
+audio.play();
+key.classList.add('playing')
+
+
+
+
+})
+
+</script>
+
+</body>
+</html>
