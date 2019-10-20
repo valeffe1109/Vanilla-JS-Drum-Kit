@@ -65,18 +65,17 @@ const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 if(!audio) return;
 audio.currentTime = 0 ;
 audio.play();
+setTimeout(function(){ key.classList.remove('playing') }, 100);
 key.classList.add('playing');
+
+
 }
 
 
-function removeTransition(e){
-    if(e.propertyName !== "transform") return;
-    this.classList.remove('playing');
-}
 
-const keys = document.querySelectorAll('.key');
-keys.forEach(key=>key.addEventListener('transitioned',removeTransition));
+
 window.addEventListener('keydown',playSound)
+
 
 </script>
 
