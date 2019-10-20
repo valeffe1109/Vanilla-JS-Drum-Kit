@@ -1,4 +1,9 @@
 
+body{
+    background-color:#333
+}
+
+
 .keys{
     display:flex;
     min-height:100vh;
